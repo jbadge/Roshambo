@@ -1,7 +1,7 @@
 import './style.css'
 
-let currentPlayer = 'Player One'
 let moveCounter = 0
+let sections = document.querySelectorAll('section')
 
 function handleClickSquare(event: MouseEvent) {
   // event.stopPropagation()
@@ -9,7 +9,27 @@ function handleClickSquare(event: MouseEvent) {
 
   const thingClickedOn = event.target
 
-  // NEED SOMETHING HERE TO CHANGE PLAYERS, CHECK FOR ACTIVE PLAYER
+  if (
+    thingClickedOn instanceof HTMLLIElement ||
+    thingClickedOn instanceof Image
+  ) {
+    const currentPlayer = thingClickedOn.closest('section')
+
+    if (
+      currentPlayer?.classList.contains('activePlayer') &&
+      currentPlayer?.classList.contains('p1')
+    ) {
+      currentPlayer.classList.toggle('activePlayer')
+      sections[1].classList.toggle('activePlayer')
+    } else if (
+      currentPlayer?.classList.contains('activePlayer') &&
+      currentPlayer?.classList.contains('p2')
+    ) {
+      currentPlayer.classList.add('HIT')
+      currentPlayer.classList.toggle('activePlayer')
+      sections[0].classList.toggle('activePlayer')
+    }
+  }
 
   moveCounter++
 
@@ -20,8 +40,10 @@ function handleClickSquare(event: MouseEvent) {
   }
 }
 
-const gameBoard = document.querySelector('ul')
+// START HERE
+sections.forEach((turn) => turn.addEventListener('click', handleClickSquare))
+// const gameBoard = document.querySelector('ul')
 
-if (gameBoard instanceof HTMLUListElement) {
-  gameBoard.addEventListener('click', handleClickSquare)
-}
+// if (gameBoard instanceof HTMLUListElement) {
+//   gameBoard.addEventListener('click', handleClickSquare)
+// }
