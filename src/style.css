@@ -38,11 +38,16 @@ h1 {
   font-size: 2rem;
   color: var(--header-text-color);
   margin: 1rem 0 3rem 0;
-  margin: 0;
+  margin: 0px;
   background-color: var(--header-background);
 }
-
 h2 {
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px 0px 0px 0px;
+}
+
+h3 {
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -79,8 +84,8 @@ section {
   border: solid #5661b3 1px;
   border-radius: 5px;
   text-align: center;
-  padding: 2rem 2rem 0rem 2rem;
-  /* opacity: 25%; */
+  padding: 2rem 2rem 2rem 2rem;
+  opacity: 25%;
   width: 30%;
   min-width: 18rem;
 }
@@ -90,11 +95,53 @@ img {
   width: 100%;
 }
 
+.activePlayer {
+  opacity: 100%;
+}
+
 .grid {
   display: grid;
   align-items: start;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr;
   grid-gap: 32px;
-  padding: 2.5rem 1rem 0rem 1rem;
+  padding: 2.5rem 1rem 4rem 1rem;
+}
+
+.rock,
+.paper,
+.scissors {
+  grid-column: span 2;
+}
+
+.lizard {
+  grid-column: 2 / span 2;
+}
+
+.spock {
+  grid-column: 4 / span 2;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 725px) {
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 0rem 1rem;
+    gap: 2rem;
+  }
+
+  section {
+    padding: 0.5rem;
+  }
 }
