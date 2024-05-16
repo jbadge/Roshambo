@@ -8,7 +8,7 @@ A game of rock, paper, scissors...lizard and Spock.
 
 **Link to project:** https://roshambo-jb.netlify.app/
 
-<!-- ![alt tag](http://placecorgi.com/1200/650) -->
+<!-- ![alt tag] (http://placecorgi.com/1200/650) -->
 
 ## Built With
 
